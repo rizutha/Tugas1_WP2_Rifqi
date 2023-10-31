@@ -1,31 +1,42 @@
-@extends('components.layout')
-@section('title', 'Mahasiswa')
-<div class="container-fluid">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <div class="row mb-2">
-        <div class="col-sm-6">
-            <h2 class="text-dark m-0">Detail Data Mahasiswa</h2>
+@extends('lecturers.layout')
+@section('content')
+<div class="shadow-lg rounded-4 p-5">
+    <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <h2> Informasi Dosen</h2>
+            </div>
+        </div>
+    </div>
+   
+    <div class="row mt-2">
+        <div class="my-1">
+            <div class="row">
+                <strong class="col-2">NIM</strong>
+                <p class="col">:  {{ $mhs->nim }}</p>
+            </div>
+        </div>
+        <div class="my-1">
+            <div class="form-group row">
+                <strong class="col-2">Nama</strong>
+                <p class="col">: {{ $mhs->nama }}</p>
+            </div>
+        </div>
+        <div class="my-1">
+            <div class="form-group row">
+                <strong class="col-2">Prodi</strong>
+                <p class="col">: {{ $mhs->prodi }}</p>
+            </div>
+        </div>
+        <div class="my-1">
+            <div class="form-group row">
+                <strong class="col-2">Tanggal Lahir</strong>
+                <p class="col">: {{ $dosen->tgl_lahir }}</p>
+            </div>
+        </div>
+        <div class="mt-3">
+            <a class="btn btn-secondary" href="{{ route('lecturers.index') }}"> Back</a>
         </div>
     </div>
 </div>
-@section('content')
-    <div class="box-header with-border">
-        <a href="/students" class="btn btn-success btn-xs btn-flat"><i class="fa fa-pluscircle"></i>
-            << Kembali </a>
-    </div>
-    <br>
-    <div class="row">
-        <div class="form-group">
-            <strong>NIM:</strong>
-            {{ $mhs->nim }}
-        </div>
-        <div class="form-group">
-            <strong>Nama:</strong>
-            {{ $mhs->nama }}
-        </div>
-        <div class="form-group">
-            <strong>Program Studi:</strong>
-            {{ $mhs->prodi }}
-        </div>
-    </div>
 @endsection

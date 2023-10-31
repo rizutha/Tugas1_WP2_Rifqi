@@ -1,24 +1,23 @@
-@extends('students.layout')
- 
-@section('content')
-<div class="shadow-lg p-5 rounded-4 my-5">
-    <div class="row">
-        <div class="pull-left col-10">
-            <h2>Data Mahasiswa</h2>
-        </div>
-        <div class="pull-right col-2">
-            <a class="btn btn-primary" href="/students/tambah"> Tambah Data</a>
+@extends('components.layout')
+@section('title', 'Mahasiswa')
+<div class="container-fluid">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <h2 class="text-dark m-0">Data Mahasiswa</h2>
         </div>
     </div>
-
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-    <div class='mt-2'>
-        <table class="table table-hover align-middle">
-        <thead>
+</div>
+@section('content')
+    <div class="box-header with-border">
+        <a href="/students/tambah" class="btn btn-success btn-xs btn-flat"><i class="fa faplus-circle"></i>
+            Tambah Data
+        </a>
+    </div>
+    <br>
+    <div class="box-body table-responsive">
+        <table class="table-stiped table-bordered table">
+            <thead>
                 <tr>
                     <th width="5%">No</th>
                     <th>NIM</th>
@@ -43,8 +42,5 @@
             @endforeach
         </table>
     </div>
-</div>
-  
-    
-      
+    {{ $mhs->links() }}
 @endsection

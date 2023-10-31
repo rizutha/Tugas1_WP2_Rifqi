@@ -1,26 +1,20 @@
-@extends('lecturers.layout')
-  
-@section('content')
-<div class="shadow-lg rounded-4 p-5">
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Add New lecturers</h2>
-            </div>
+@extends('components.layout')
+@section('title', 'Dosen/Lecturers')
+<div class="container-fluid">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <h2 class="text-dark m-0">Ubah Data Dosen</h2>
         </div>
     </div>
-       
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Error!</strong> <br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-       
+</div>
+@section('content')
+    <div class="box-header with-border">
+        <a href="{{ route('lecturers.index') }}" class="btn btn-success btn-xs btn-flat">
+            <i class="fa fa-plus-circle"></i>
+            << Kembali </a>
+    </div>
+    <br>
     <form action="{{ route('lecturers.update', [$dosen->id]) }}" method="POST">
         @method('put')
         @csrf
@@ -42,10 +36,8 @@
             </div>
             <div>
                 <br>
-                <a href="{{ route('lecturers.index') }}" class="btn btn-success btn-xs btn-flat"><i class="fa fa-pluscircle"></i><< Kembali </a>
                 <button type="submit" class="btn btn-primary">Update</button>
             </div>
         </div>
     </form>
-</div>
 @endsection

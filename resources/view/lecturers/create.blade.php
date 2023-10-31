@@ -1,24 +1,19 @@
-@extends('lecturers.layout')
-  
-@section('content')
-<div class="shadow-lg p-5 rounded-4">
-    <div class="row">
-            <div class="pull-left col-10">
-                <h2>Tambahkan Data Baru</h2>
-            </div>
-    </div>
-    
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Error!</strong> <br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+@extends('components.layout')
+@section('title', 'Dosen/Lecturers')
+<div class="container-fluid">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <h2 class="text-dark m-0">Tambah Data Dosen</h2>
         </div>
-    @endif
-    
+    </div>
+</div>
+@section('content')
+    <div class="box-header with-border">
+        <a href="/students" class="btn btn-success btn-xs btn-flat"><i class="fa fa-pluscircle"></i>
+            << Kembali </a>
+    </div>
+    <br>
     <form action="{{ route('lecturers.store') }}" method="POST">
         @csrf
         <div class="row">
@@ -41,5 +36,4 @@
             </div>
         </div>
     </form>
-</div>
 @endsection
