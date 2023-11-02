@@ -1,10 +1,10 @@
-@extends('lecturers.layout')
+@extends('components.layout')
 @section('content')
 <div class="shadow-lg rounded-4 p-5">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2> Informasi Dosen</h2>
+                <h2> Informasi Mahasiswa</h2>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
         <div class="my-1">
             <div class="form-group row">
                 <strong class="col-2">Tanggal Lahir</strong>
-                <p class="col">: {{ $dosen->tgl_lahir }}</p>
+                <p class="col">: {{ $mhs->tgl_lahir }}</p>
             </div>
         </div>
         <div class="mt-3">

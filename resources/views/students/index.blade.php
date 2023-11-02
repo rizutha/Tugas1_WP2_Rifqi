@@ -1,4 +1,4 @@
-@extends('students.layout')
+@extends('components.layout')
 
 @section('content')
     <div class="rounded-4 my-5 p-5 shadow-lg">
@@ -7,8 +7,10 @@
                 <h2>Data Mahasiswa</h2>
             </div>
             <div class="pull-right">
+                <a class="btn btn-secondary" href="/"> Kembali</a>
                 <a class="btn btn-primary" href="/students/tambah"> Tambah Data</a>
             </div>
+            
         </div>
 
         @if ($message = Session::get('success'))

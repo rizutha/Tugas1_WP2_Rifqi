@@ -1,12 +1,13 @@
-@extends('lecturers.layout')
+@extends('components.layout')
 
 @section('content')
     <div class="rounded-4 my-5 p-5 shadow-lg">
-        <div class="row">
-            <div class="pull-left col-10">
+        <div class="d-flex justify-content-between">
+            <div class="pull-left">
                 <h2>Data Dosen</h2>
             </div>
-            <div class="pull-right col-2">
+            <div class="pull-right">
+                <a class="btn btn-secondary" href="/"> Kembali</a>
                 <a class="btn btn-primary" href="{{ route('lecturers.create') }}"> Tambah Data</a>
             </div>
         </div>

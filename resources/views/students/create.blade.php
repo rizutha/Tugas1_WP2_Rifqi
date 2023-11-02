@@ -1,4 +1,4 @@
-@extends('students.layout')
+@extends('components.layout')
   
 @section('content')
 <div class="shadow-lg p-5 rounded-4">
