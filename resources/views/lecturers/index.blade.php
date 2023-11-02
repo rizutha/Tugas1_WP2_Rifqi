@@ -48,6 +48,7 @@
                 @endforeach
         </table>
     </div>
+    {{ $dosen->links() }} 
 </div>
   
     

@@ -37,10 +37,10 @@
                     <option value="Sistem Informasi" {{ old('prodi') == 'Sistem Informasi' ? 'selected' : '' }}>Sistem
                         Informasi</option>
                     <option value="Sistem Informasi Akuntansi"
-                        {{ old('prodi') == "Sistem ? 'selected' : '' }}>
+                        {{ old('prodi') == "Sistem Informasi Akuntansi"? 'selected' : '' }}>
                         Sistem Informasi Akuntansi
                     </option>
-                    <option value="Teknologi Komputer" {{ old('prodi) == 'Teknologi Komputer' ? 'selected' : '' }}>
+                    <option value="Teknologi Komputer" {{ old('prodi') == 'Teknologi Komputer' ? 'selected' : '' }}>
                         Teknologi
                         Komputer</option>
                 </select>
