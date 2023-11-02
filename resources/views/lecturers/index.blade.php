@@ -1,24 +1,24 @@
 @extends('lecturers.layout')
- 
-@section('content')
-<div class="shadow-lg p-5 rounded-4 my-5">
-    <div class="row">
-        <div class="pull-left col-10">
-            <h2>Data Dosen</h2>
-        </div>
-        <div class="pull-right col-2">
-            <a class="btn btn-primary" href="{{ route('lecturers.create') }}"> Tambah Data</a>
-        </div>
-    </div>
 
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
+@section('content')
+    <div class="rounded-4 my-5 p-5 shadow-lg">
+        <div class="row">
+            <div class="pull-left col-10">
+                <h2>Data Dosen</h2>
+            </div>
+            <div class="pull-right col-2">
+                <a class="btn btn-primary" href="{{ route('lecturers.create') }}"> Tambah Data</a>
+            </div>
         </div>
-    @endif
-    <div class='mt-2'>
-        <table class="table table-hover align-middle">
-        <thead>
+
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+        @endif
+        <div class='mt-2'>
+            <table class="table-hover table align-middle">
+                <thead>
                     <tr>
                         <th width="5%">No</th>
                         <th>NIP</th>
@@ -46,11 +46,8 @@
                         </td>
                     </tr>
                 @endforeach
-        </table>
+            </table>
+        </div>
+        {{ $dosen->links() }}
     </div>
-    {{ $dosen->links() }} 
-</div>
-  
-    
-      
 @endsection

@@ -1,7 +1,7 @@
 @extends('students.layout')
- 
+
 @section('content')
-    <div class="shadow-lg p-5 rounded-4 my-5">
+    <div class="rounded-4 my-5 p-5 shadow-lg">
         <div class="d-flex justify-content-between">
             <div class="pull-left">
                 <h2>Data Mahasiswa</h2>
@@ -17,8 +17,8 @@
             </div>
         @endif
         <div class='mt-2'>
-            <table class="table table-hover align-middle">
-            <thead>
+            <table class="table-hover table align-middle">
+                <thead>
                     <tr>
                         <th width="5%">No</th>
                         <th>NIM</th>
@@ -43,6 +43,6 @@
                 @endforeach
             </table>
         </div>
-        {{ $mhs->links() }} 
+        {{ $mhs->links() }}
     </div>
 @endsection

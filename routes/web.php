@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('landing');
+});
+
 Route::get('/students', [StudentController::class, 'index']);
 Route::get('/students/tambah', [StudentController::class, 'tambah']);
 Route::post('/students/simpan', [StudentController::class, 'simpan']);
