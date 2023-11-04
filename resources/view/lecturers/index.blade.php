@@ -1,24 +1,20 @@
 @extends('components.layout')
-
+@section('title', 'Dosen')
 @section('content')
-    <div class="rounded-4 my-5 p-5 shadow-lg">
-        <div class="d-flex justify-content-between">
-            <div class="pull-left">
-                <h2>Data Dosen</h2>
+    <div class="rounded-4 p-5 shadow-lg">
+        <div class="">
+            <meta name="csrf-token" content="{{ csrf_token() }}">
+            <div class="row">
+                <div class="col-9">
+                    <h2 class="text-dark m-0">Data Dosen</h2>
+                </div>
+                <a href="{{ route('lecturers.create') }}" class="btn btn-success btn-xs btnflat"><i class="col-2 fa fa-plus-circle"></i>
+                Tambah Data
+                </a>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-secondary" href="/"> Kembali</a>
-                <a class="btn btn-primary" href="{{ route('lecturers.create') }}"> Tambah Data</a>
-            </div>
-        </div>
-
-        @if ($message = Session::get('success'))
-            <div class="alert alert-success">
-                <p>{{ $message }}</p>
-            </div>
-        @endif
-        <div class='mt-2'>
-            <table class="table-hover table align-middle">
+        <br>
+        <div class="box-body table-responsive">
+            <table class="table-hover table">
                 <thead>
                     <tr>
                         <th width="5%">No</th>
