@@ -9,5 +9,5 @@ class Lecturer extends Model
 {
     use HasFactory;
     // $fillable wajib diisi dengan atribut tabelnya
-    protected $fillable = ['nip', 'nama', 'keilmuan'];
+    protected $fillable = ['nip', 'nama', 'keilmuan', 'foto'];
 }

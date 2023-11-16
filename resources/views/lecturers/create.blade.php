@@ -19,7 +19,7 @@
         </div>
     @endif
     
-    <form action="{{ route('lecturers.store') }}" method="POST">
+    <form action="{{ route('lecturers.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="form-group">
@@ -29,6 +29,10 @@
             <div class="form-group">
                 <strong>Nama:</strong>
                 <input type="text" name="nama" class="form-control" value="{{ old('nama') }}">
+            </div>
+            <div class="form-group">
+                <strong>Foto:</strong>
+                <input type="file" name="foto" class="form-control" id="foto">
             </div>
             <div class="form-group">
                 <strong>Keilmuan:</strong>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lecturer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class LecturerController extends Controller
 {
@@ -36,13 +37,24 @@ class LecturerController extends Controller
             'nip' => 'required|max:8',
             'nama' => 'required|max:30',
             'keilmuan' => 'required|max:30',
+            'foto' => 'required|mimes:jpeg,jpg,png,gif'
         ]);
+
+        $foto_file = $request->file('foto');
+        $foto_ekstensi = $foto_file->extension();
+        $foto_nama = date('ymdhis') . "." . $foto_ekstensi;
+        $foto_file->move(public_path('foto'),$foto_nama);
+
         // lakukan create/insert data ke tabel database
         $dosen = Lecturer::create([
             'nip' => $request->nip,
             'nama' => $request->nama,
             'keilmuan' => $request->keilmuan,
+            'foto' => $foto_nama
         ]);
+
+        
+
         // bisa juga langsung menggunakan request all untuk create data
         // $dosen = Lecturer::create($request->all());
         return redirect('/lecturers')->with('success', 'Lecturer created successfully.');
@@ -93,7 +105,11 @@ class LecturerController extends Controller
     public function destroy(string $id)
     {
         // menghapus data dari record terpilih berdasarkan $id
-        $dosen = Lecturer::where('id', $id)->delete();
+
+        $dosen = Lecturer::where('id', $id)->first();
+        File::delete(public_path('foto') .'/'. $dosen->foto);
+
+        Lecturer::where('id', $id)->delete();
         return redirect('/lecturers')->with('success', 'Lecturers deleted successfully.');
     }
 }
